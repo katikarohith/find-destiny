@@ -4,7 +4,6 @@ function playGame() {
   let n2 = document.getElementById("name2").value.toLowerCase().replace(/[^a-z]/g,"");
   if(!n1 || !n2){ out.innerHTML = "⚠️ Please enter both names."; return; }
 
-  // remove matching letters until none left
   while(true){
     let removed = false;
     for(let i=0;i<n1.length;i++){
@@ -17,7 +16,9 @@ function playGame() {
         break;
       }
     }
-    if(!removed) break;
+    if(!removed)
+        {break
+        };
   }
 
   const count = n1.length + n2.length;
@@ -31,7 +32,6 @@ function playGame() {
     Y: "Yearning Love 💌"
   };
 
-  // special case: identical names -> show D
   if(count === 0){
     out.innerHTML = "Result: <b>" + meanings.D + "</b>";
     return;
@@ -39,9 +39,11 @@ function playGame() {
 
   let word = ["D","E","S","T","I","N","Y"];
   let idx = 0;
+
   while(word.length > 1){
-    idx = (idx + count - 1) % word.length;
-    word.splice(idx,1);
+    idx = (idx + count - 1) % word.length; 
+    word.splice(idx,1); 
+    if(idx === word.length) idx = 0; 
   }
 
   out.innerHTML = "Result: <b>" + meanings[word[0]] + "</b>";
