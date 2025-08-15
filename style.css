@@ -5,7 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #4facfe, #00f2fe); /* Cool blue gradient */
+  background: linear-gradient(135deg, #4facfe, #00f2fe); 
 }
 
 .container {
@@ -43,7 +43,7 @@ button {
   width: 95%;
   padding: 10px;
   margin-top: 10px;
-  background: linear-gradient(90deg, #ff6a00, #ee0979); /* Orange → Magenta */
+  background: linear-gradient(90deg, #ff6a00, #ee0979); 
   border: none;
   border-radius: 8px;
   font-size: 1rem;
@@ -54,7 +54,7 @@ button {
 
 button:hover {
   transform: scale(1.05);
-  background: linear-gradient(90deg, #f7971e, #ffd200); /* Golden yellow */
+  background: linear-gradient(90deg, #f7971e, #ffd200); 
 }
 
 #result {
