@@ -5,7 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-   background: linear-gradient(135deg, #fbbe74, #b36b34);  
+  background: linear-gradient(135deg, #fbbe74, #b36b34);
 }
 
 .container {
@@ -17,10 +17,29 @@ body {
   max-width: 400px;
   backdrop-filter: blur(8px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.8s ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 h1 {
-  color: white;
+  background: linear-gradient(90deg, #fff, #ffd8b1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 1.8rem;
 }
 
@@ -37,13 +56,19 @@ input {
   border: none;
   outline: none;
   font-size: 1rem;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+input:focus {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 button {
   width: 95%;
   padding: 10px;
   margin-top: 10px;
-background: linear-gradient(90deg, #98511f, #972c60);
+  background: linear-gradient(90deg, #98511f, #972c60);
   border: none;
   border-radius: 8px;
   font-size: 1rem;
@@ -55,6 +80,11 @@ background: linear-gradient(90deg, #98511f, #972c60);
 button:hover {
   transform: scale(1.05);
   background: linear-gradient(90deg, #8c2a6a, #e60760);
+}
+
+button:active {
+  transform: scale(0.97);
+  background: linear-gradient(90deg, #e60760, #8c2a6a);
 }
 
 #result {
@@ -70,5 +100,12 @@ button:hover {
   }
   input, button {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    width: 95%;
+    border-radius: 10px;
   }
 }
