@@ -3,13 +3,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const out = document.getElementById("result");
 
   btn.addEventListener("click", function () {
-    out.textContent = ""; 
+    out.innerHTML = "";
+    out.classList.remove("show");
 
     let n1 = document.getElementById("name1").value.toLowerCase().replace(/[^a-z]/g, "");
     let n2 = document.getElementById("name2").value.toLowerCase().replace(/[^a-z]/g, "");
 
     if (!n1 || !n2) {
-      out.textContent = "Please enter both names.";
+      out.innerHTML = '<div id="result-box">⚠️ Please enter both names.</div>';
+      out.classList.add("show");
       return;
     }
 
@@ -40,22 +42,21 @@ document.addEventListener("DOMContentLoaded", function () {
       Y: "Yearning Love 💌",
     };
 
- 
     if (count === 0) {
-      out.innerHTML = "Result: <b>" + meanings.D + "</b>";
+      out.innerHTML = '<div id="result-box">Result: <b>' + meanings.D + '</b></div>';
+      out.classList.add("show");
       return;
     }
 
-    
     let word = ["D", "E", "S", "T", "I", "N", "Y"];
     let idx = 0;
     while (word.length > 1) {
-      idx = (idx + count - 1) % word.length; 
-      word.splice(idx, 1);                     
-      if (idx === word.length) idx = 0;        
-  
+      idx = (idx + count - 1) % word.length;
+      word.splice(idx, 1);
+      if (idx === word.length) idx = 0;
     }
 
-    out.innerHTML = "Result: <b>" + meanings[word[0]] + "</b>";
+    out.innerHTML = '<div id="result-box">Result: <b>' + meanings[word[0]] + '</b></div>';
+    out.classList.add("show");
   });
 });
